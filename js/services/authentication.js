@@ -28,7 +28,7 @@ function ($rootScope, $location, $firebaseObject, $firebaseAuth) {
         user.email,
         user.password
       ).then(function(user) {
-        $location.path('/success')
+        $location.path('/meetings')
       }).catch(function(error) {
         $rootScope.message = error.message;
       }); // signinwithemailandpassword
