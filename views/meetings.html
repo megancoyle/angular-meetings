@@ -2,6 +2,7 @@
 
   <div class="textintro">
     <h1>Add a Meeting</h1>
+    <p>Type a meeting and hit +</p>
     <form action="" class="formgroup addmeeting cf"
           name="myform"
           ng-submit="addMeeting()"
@@ -16,4 +17,11 @@
     </form>
 
   </div>
+</div><!-- meetings cf -->
+<div class="card meetings cf">
+  <h2>Your Meetings</h2>
+  <div class="meeting" ng-repeat="(key,meeting) in meetings">
+    <button class="btn btn-delete tooltip" ng-click="deleteMeeting(key)"><span>Delete this meeting</span></button>
+    <span class="text">{{meeting.name}}</span>
+  </div><!-- meetings list -->
 </div><!-- meetings cf -->
