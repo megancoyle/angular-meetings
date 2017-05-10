@@ -1,6 +1,6 @@
 myApp.controller('MeetingsController',
-  ['$scope', '$firebaseAuth', '$firebaseArray',
-  function($scope, $firebaseAuth, $firebaseArray) {
+  ['$scope', '$rootScope', '$firebaseAuth', '$firebaseArray',
+  function($scope, $rootScope, $firebaseAuth, $firebaseArray) {
 
     // reference to database
     var ref = firebase.database().ref();
@@ -14,6 +14,14 @@ myApp.controller('MeetingsController',
         var meetingsInfo = $firebaseArray(meetingsRef);
 
         $scope.meetings = meetingsInfo;
+
+        meetingsInfo.$loaded().then(function(data) {
+          $rootScope.howManyMeetings = meetingsInfo.length;
+        }); // make sure meeting data is loaded
+
+        meetingsInfo.$watch(function(data) {
+          $rootScope.howManyMeetings = meetingsInfo.length;
+        }); // watch to see if variable changes through user interaction with app
 
         $scope.addMeeting = function() {
           meetingsInfo.$add({
