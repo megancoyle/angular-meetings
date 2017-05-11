@@ -38,8 +38,9 @@
       <div class="checkin">
         <div class="buttons">
 
-          <button class="btn btn-delete tooltip" ng-click="deleteCheckin(checkin.$id)"><span>Delete this checkin</span></button>
+          <button class="btn btn-delete tooltip" ng-click="deleteCheckin(checkin.$id)"><span>Delete this checkin</span></button> <!-- deleteCheckin -->
 
+          <button class="btn btn-love tooltip" ng-click="showLove(checkin)"><span>Show the love</span></button>
         </div>
 
         <div class="info">
@@ -48,6 +49,21 @@
             {{checkin.date | date: "MMM d,yy h:mm a"}}
           </div> <!-- date -->
         </div> <!-- info -->
+        <div class="showcheckins" ng-show="checkin.show">
+
+          <form class="cf"
+            ng-submit="giveLove(checkin, checkin.giftText)"
+            novalidate>
+
+            <input type="text" name="giftText"
+              placeholder="What are you giving?"
+              ng-rquired="true" ng-model="checkin.giftText">
+
+            <button class="btn" type="submit"
+              ng-disabled="myform.$invalid">+</button>
+
+          </form> <!-- giveLove -->
+        </div> <!-- showcheckins -->
       </div> <!-- checkin -->
     </li>
   </ul>
