@@ -63,6 +63,14 @@
               ng-disabled="myform.$invalid">+</button>
 
           </form> <!-- giveLove -->
+
+          <ul class="awardslist cf">
+            <li class="cf" ng-repeat="(key, award) in checkin.awards">
+              <div class="award">
+                {{award.name}}
+              </div>
+            </li>
+          </ul>
         </div> <!-- showcheckins -->
       </div> <!-- checkin -->
     </li>
