@@ -34,7 +34,7 @@
     </div>
   </div>
   <ul class="userlist cf">
-    <li ng-repeat="checkin in checkins | orderBy: order:direction | filter: { $id: recordId, $: query }">
+    <li ng-class="checkin.userState" ng-repeat="checkin in checkins | orderBy: order:direction | filter: { $id: recordId, $: query }">
       <div class="checkin">
         <div class="buttons">
 
