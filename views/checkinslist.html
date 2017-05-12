@@ -23,7 +23,7 @@
       <label for="dirdescending">desc</label>
     </div>
 
-    <div class="buttons cf">
+    <div ng-show="currentUser" class="buttons cf">
       <button class="btn btn-pick"
         ng-hide="recordId"
         ng-click="pickRandom()">Pick Random</button>
@@ -38,7 +38,7 @@
       <div class="checkin">
         <div class="buttons">
 
-          <button class="btn btn-delete tooltip" ng-click="deleteCheckin(checkin.$id)"><span>Delete this checkin</span></button> <!-- deleteCheckin -->
+          <button ng-show="currentUser" class="btn btn-delete tooltip" ng-click="deleteCheckin(checkin.$id)"><span>Delete this checkin</span></button> <!-- deleteCheckin -->
 
           <button class="btn btn-love tooltip" ng-click="showLove(checkin)"><span>Show the love</span></button>
         </div>
@@ -53,7 +53,7 @@
 
           <form class="cf"
             ng-submit="giveLove(checkin, checkin.giftText)"
-            novalidate>
+            ng-show="currentUser" novalidate>
 
             <input type="text" name="giftText"
               placeholder="What are you giving?"
@@ -68,7 +68,7 @@
             <li class="cf" ng-repeat="(key, award) in checkin.awards">
               <div class="award">
                 <div class="buttons">
-                  <button class="btn btn-delete award tooltip"
+                  <button ng-show="currentUser" class="btn btn-delete award tooltip"
                     ng-click="deleteLove(checkin, key)">
                     <span>Delete this award</span>
                   </button>
