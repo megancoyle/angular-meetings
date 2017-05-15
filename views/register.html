@@ -29,7 +29,7 @@
       >Must be a valid email</p>
 
       <input type="password" name="password" placeholder="Password"
-      ng-model="user.password" ng-required="true">
+      ng-model="user.password" ng-required="true" ng-minlength="6">
       <p class="error validationerror"
       ng-show="myform.password.$invalid && myform.email.$touched">
       Password is required</p>
